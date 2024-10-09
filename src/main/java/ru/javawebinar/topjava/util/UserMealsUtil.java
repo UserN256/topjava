@@ -42,9 +42,9 @@ public class UserMealsUtil {
         isExceeded = sumofCaloriesPerDay > caloriesPerDay; // if exression is true then store true to isExceeded
 
         for  (UserMeal meal : meals){
-            excessList.add(new UserMealWithExcess(meal.getDateTime(), meal.getDescription(), meal.getCalories(), isExceeded));
+            if (TimeUtil.isBetweenHalfOpen(meal.getDateTime().toLocalTime(), startTime, endTime))
+                excessList.add(new UserMealWithExcess(meal.getDateTime(), meal.getDescription(), meal.getCalories(), isExceeded));
         }
-
         return excessList;
     }
 
