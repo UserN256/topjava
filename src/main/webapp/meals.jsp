@@ -14,20 +14,19 @@
 <table>
     <thead>
     <tr>
-        <th>id</th>
-        <th>Имя</th>
-        <th>id другого объекта</th>
-        <th>Имя другого объекта</th>
+        <th>Время</th>
+        <th>Какая еда</th>
+        <th>Сколько калорий</th>
     </tr>
     </thead>
     <tbody>
     <jsp:useBean id="listExample" scope="session" type="ru.javawebinar.topjava.util.MealHW01Util.meals"/>
     <c:forEach items="${listExample}" var="listValue">
+        <jsp:useBean id="listValue" scope="session" type="ru.javawebinar.topjava.model.Meal"/>
         <tr>
-            <td>${listValue.id}</td>
-            <td>${listValue.name}</td>
-            <td>${listValue.otherObject.id}</td>
-            <td>${listValue.otherObject.name}</td>
+            <td>${listValue.dateTime}</td>
+            <td>${listValue.description}</td>
+            <td>${listValue.calories}</td>
         </tr>
     </c:forEach>
     </tbody>
